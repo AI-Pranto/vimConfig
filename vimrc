@@ -23,7 +23,6 @@ set number
 set relativenumber
 set shortmess+=I
 set hlsearch
-let python_highlight_all = 1
 
 let vim_markdown_folding_disabled = 1
 let vim_markdown_folding_disabled = 1
@@ -96,16 +95,19 @@ call vundle#begin()
 "Plugin 'file:///home/gmarik/path/to/plugin'
 
 Plugin 'VundleVim/Vundle.vim'                 " let Vundle manage Vundle.
-Plugin 'gridley/serpent2vimsyntax'
+Plugin 'ekalinin/Dockerfile.vim'
 Plugin 'jlconlin/ENDF.vim'
-Plugin 'elementx54/moosefw_vim'
-Plugin 'henrik/vim-indexed-search'            " Display number of search matches
 Plugin 'morhetz/gruvbox'
-Plugin 'ycm-core/YouCompleteMe'
-Plugin 'scrooloose/syntastic'
 Plugin 'davidhalter/jedi-vim'
-Plugin 'tpope/vim-fugitive'                   " plugin on GitHub repo
 Plugin 'L9'
+Plugin 'elementx54/moosefw_vim'
+Plugin 'preservim/nerdtree'
+Plugin 'gridley/serpent2vimsyntax'
+Plugin 'scrooloose/syntastic'
+Plugin 'godlygeek/tabular'
+Plugin 'tpope/vim-fugitive'                   " plugin on GitHub repo
+Plugin 'henrik/vim-indexed-search'            " Display number of search matches
+Plugin 'ycm-core/YouCompleteMe'
 Plugin 'git://git.wincent.com/command-t.git'  " Git plugin not hosted on GitHub
 Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
 
@@ -126,8 +128,13 @@ call vundle#end()            " required
 colorscheme gruvbox
 set background=dark
 
+" YCM
 let g:ycm_key_list_accept_completion = ['<C-y>']
 let g:ycm_collect_identifiers_from_tags_files = 1
+
+" For nerdtree
+let NERDTreeShowHidden=1
+nnoremap <C-n> :NERDTree<CR>
 
 " python syntax check
 set statusline+=%#warningmsg#
